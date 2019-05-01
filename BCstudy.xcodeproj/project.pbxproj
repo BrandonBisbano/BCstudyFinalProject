@@ -7,21 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4037005522767DFD00174DB8 /* BostonCollegeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037005422767DFD00174DB8 /* BostonCollegeClass.swift */; };
+		4037005D2276E69600174DB8 /* StudyPartnerMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037005C2276E69600174DB8 /* StudyPartnerMessageViewController.swift */; };
+		404638D4226FEB71001D9004 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404638D3226FEB71001D9004 /* GoogleService-Info.plist */; };
+		404638D622702741001D9004 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404638D522702741001D9004 /* Course.swift */; };
+		4065335B226A8FDF00BF1CDC /* MyCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065335A226A8FDF00BF1CDC /* MyCoursesTableViewController.swift */; };
+		40756F76227119CA00191917 /* StudyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F75227119CA00191917 /* StudyUser.swift */; };
+		40756F7A22711C3E00191917 /* StudyUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F7922711C3E00191917 /* StudyUsers.swift */; };
+		40756F7C227125B400191917 /* StudyUsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F7B227125B400191917 /* StudyUsersListViewController.swift */; };
+		40756F7E22712A6F00191917 /* StudyUsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F7D22712A6F00191917 /* StudyUsersTableViewCell.swift */; };
+		40756F8422738D5600191917 /* MyCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F8322738D5600191917 /* MyCourseTableViewCell.swift */; };
+		40756F862273DBB400191917 /* StudyPartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F852273DBB400191917 /* StudyPartnersViewController.swift */; };
+		40756F882273DC6B00191917 /* AddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F872273DC6B00191917 /* AddExamViewController.swift */; };
+		40756F8A2273E9D000191917 /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F892273E9D000191917 /* Exam.swift */; };
+		40756F8C2274037F00191917 /* MyCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F8B2274037F00191917 /* MyCoursesTableViewCell.swift */; };
+		40756F8E2274096700191917 /* Exams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F8D2274096700191917 /* Exams.swift */; };
+		40756F902274CF4800191917 /* Classmate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F8F2274CF4800191917 /* Classmate.swift */; };
+		40756F922274CF6100191917 /* Classmates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F912274CF6100191917 /* Classmates.swift */; };
+		40756F942274DD3500191917 /* StudyPartnersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40756F932274DD3500191917 /* StudyPartnersTableViewCell.swift */; };
+		4090EECA2270D0A50000FFE6 /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4090EEC92270D0A50000FFE6 /* Courses.swift */; };
 		40B97BBD22658EB8005C393F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B97BBC22658EB8005C393F /* AppDelegate.swift */; };
-		40B97BBF22658EB8005C393F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B97BBE22658EB8005C393F /* ViewController.swift */; };
 		40B97BC222658EB8005C393F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B97BC022658EB8005C393F /* Main.storyboard */; };
 		40B97BC422658EC1005C393F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B97BC322658EC1005C393F /* Assets.xcassets */; };
 		40B97BC722658EC1005C393F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B97BC522658EC1005C393F /* LaunchScreen.storyboard */; };
+		40B97BCF2266CADF005C393F /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B97BCE2266CADF005C393F /* CourseDetailViewController.swift */; };
+		40B97BD12266CB1F005C393F /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B97BD02266CB1F005C393F /* AddCourseViewController.swift */; };
+		97472A142B74CA5889C67EA0 /* Pods_BCstudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEFDFCC199440B34AFB691C /* Pods_BCstudy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FEFDFCC199440B34AFB691C /* Pods_BCstudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCstudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4037005422767DFD00174DB8 /* BostonCollegeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BostonCollegeClass.swift; sourceTree = "<group>"; };
+		4037005C2276E69600174DB8 /* StudyPartnerMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPartnerMessageViewController.swift; sourceTree = "<group>"; };
+		404638D3226FEB71001D9004 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		404638D522702741001D9004 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		4065335A226A8FDF00BF1CDC /* MyCoursesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesTableViewController.swift; sourceTree = "<group>"; };
+		40756F75227119CA00191917 /* StudyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyUser.swift; sourceTree = "<group>"; };
+		40756F7922711C3E00191917 /* StudyUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyUsers.swift; sourceTree = "<group>"; };
+		40756F7B227125B400191917 /* StudyUsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyUsersListViewController.swift; sourceTree = "<group>"; };
+		40756F7D22712A6F00191917 /* StudyUsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyUsersTableViewCell.swift; sourceTree = "<group>"; };
+		40756F8322738D5600191917 /* MyCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCourseTableViewCell.swift; sourceTree = "<group>"; };
+		40756F852273DBB400191917 /* StudyPartnersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPartnersViewController.swift; sourceTree = "<group>"; };
+		40756F872273DC6B00191917 /* AddExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExamViewController.swift; sourceTree = "<group>"; };
+		40756F892273E9D000191917 /* Exam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
+		40756F8B2274037F00191917 /* MyCoursesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesTableViewCell.swift; sourceTree = "<group>"; };
+		40756F8D2274096700191917 /* Exams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exams.swift; sourceTree = "<group>"; };
+		40756F8F2274CF4800191917 /* Classmate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classmate.swift; sourceTree = "<group>"; };
+		40756F912274CF6100191917 /* Classmates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classmates.swift; sourceTree = "<group>"; };
+		40756F932274DD3500191917 /* StudyPartnersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPartnersTableViewCell.swift; sourceTree = "<group>"; };
+		4090EEC92270D0A50000FFE6 /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
 		40B97BB922658EB8005C393F /* BCstudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BCstudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B97BBC22658EB8005C393F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40B97BBE22658EB8005C393F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		40B97BC122658EB8005C393F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40B97BC322658EC1005C393F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B97BC622658EC1005C393F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B97BC822658EC1005C393F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40B97BCE2266CADF005C393F /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
+		40B97BD02266CB1F005C393F /* AddCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
+		B3112328B6B1C0CD79C550D3 /* Pods-BCstudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCstudy.release.xcconfig"; path = "Target Support Files/Pods-BCstudy/Pods-BCstudy.release.xcconfig"; sourceTree = "<group>"; };
+		C40844FD40BE3C3DD0A50D6A /* Pods-BCstudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCstudy.debug.xcconfig"; path = "Target Support Files/Pods-BCstudy/Pods-BCstudy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97472A142B74CA5889C67EA0 /* Pods_BCstudy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +85,8 @@
 			children = (
 				40B97BBB22658EB8005C393F /* BCstudy */,
 				40B97BBA22658EB8005C393F /* Products */,
+				EA060B0932CA4478C862565A /* Pods */,
+				45A34FF54F7106A19FB902E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +102,50 @@
 			isa = PBXGroup;
 			children = (
 				40B97BBC22658EB8005C393F /* AppDelegate.swift */,
-				40B97BBE22658EB8005C393F /* ViewController.swift */,
+				40756F75227119CA00191917 /* StudyUser.swift */,
+				40756F7922711C3E00191917 /* StudyUsers.swift */,
+				404638D522702741001D9004 /* Course.swift */,
+				4090EEC92270D0A50000FFE6 /* Courses.swift */,
+				40756F8F2274CF4800191917 /* Classmate.swift */,
+				40756F912274CF6100191917 /* Classmates.swift */,
+				40756F892273E9D000191917 /* Exam.swift */,
+				40756F8D2274096700191917 /* Exams.swift */,
+				4037005422767DFD00174DB8 /* BostonCollegeClass.swift */,
+				4065335A226A8FDF00BF1CDC /* MyCoursesTableViewController.swift */,
+				40756F8322738D5600191917 /* MyCourseTableViewCell.swift */,
+				40B97BD02266CB1F005C393F /* AddCourseViewController.swift */,
+				40B97BCE2266CADF005C393F /* CourseDetailViewController.swift */,
+				40756F8B2274037F00191917 /* MyCoursesTableViewCell.swift */,
+				40756F872273DC6B00191917 /* AddExamViewController.swift */,
+				40756F852273DBB400191917 /* StudyPartnersViewController.swift */,
+				4037005C2276E69600174DB8 /* StudyPartnerMessageViewController.swift */,
+				40756F932274DD3500191917 /* StudyPartnersTableViewCell.swift */,
+				40756F7B227125B400191917 /* StudyUsersListViewController.swift */,
+				40756F7D22712A6F00191917 /* StudyUsersTableViewCell.swift */,
 				40B97BC022658EB8005C393F /* Main.storyboard */,
 				40B97BC322658EC1005C393F /* Assets.xcassets */,
 				40B97BC522658EC1005C393F /* LaunchScreen.storyboard */,
 				40B97BC822658EC1005C393F /* Info.plist */,
+				404638D3226FEB71001D9004 /* GoogleService-Info.plist */,
 			);
 			path = BCstudy;
+			sourceTree = "<group>";
+		};
+		45A34FF54F7106A19FB902E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FEFDFCC199440B34AFB691C /* Pods_BCstudy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA060B0932CA4478C862565A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C40844FD40BE3C3DD0A50D6A /* Pods-BCstudy.debug.xcconfig */,
+				B3112328B6B1C0CD79C550D3 /* Pods-BCstudy.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40B97BCB22658EC1005C393F /* Build configuration list for PBXNativeTarget "BCstudy" */;
 			buildPhases = (
+				DC088E1E39B61A71BCCDBCFE /* [CP] Check Pods Manifest.lock */,
 				40B97BB522658EB8005C393F /* Sources */,
 				40B97BB622658EB8005C393F /* Frameworks */,
 				40B97BB722658EB8005C393F /* Resources */,
+				103F30ED333CC771906BFC52 /* [CP] Embed Pods Frameworks */,
+				3E0A9E944F9E45E07D7AE07A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40B97BC722658EC1005C393F /* LaunchScreen.storyboard in Resources */,
+				404638D4226FEB71001D9004 /* GoogleService-Info.plist in Resources */,
 				40B97BC422658EC1005C393F /* Assets.xcassets in Resources */,
 				40B97BC222658EB8005C393F /* Main.storyboard in Resources */,
 			);
@@ -130,13 +218,123 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		103F30ED333CC771906BFC52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BCstudy/Pods-BCstudy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BCstudy/Pods-BCstudy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E0A9E944F9E45E07D7AE07A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BCstudy/Pods-BCstudy-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BCstudy/Pods-BCstudy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC088E1E39B61A71BCCDBCFE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BCstudy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		40B97BB522658EB8005C393F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40B97BBF22658EB8005C393F /* ViewController.swift in Sources */,
+				40756F8A2273E9D000191917 /* Exam.swift in Sources */,
+				40756F8422738D5600191917 /* MyCourseTableViewCell.swift in Sources */,
+				40756F882273DC6B00191917 /* AddExamViewController.swift in Sources */,
+				40756F922274CF6100191917 /* Classmates.swift in Sources */,
+				404638D622702741001D9004 /* Course.swift in Sources */,
+				40756F8E2274096700191917 /* Exams.swift in Sources */,
+				40756F902274CF4800191917 /* Classmate.swift in Sources */,
+				40B97BD12266CB1F005C393F /* AddCourseViewController.swift in Sources */,
+				40756F76227119CA00191917 /* StudyUser.swift in Sources */,
+				4090EECA2270D0A50000FFE6 /* Courses.swift in Sources */,
+				40756F942274DD3500191917 /* StudyPartnersTableViewCell.swift in Sources */,
+				4037005D2276E69600174DB8 /* StudyPartnerMessageViewController.swift in Sources */,
+				40756F7E22712A6F00191917 /* StudyUsersTableViewCell.swift in Sources */,
+				40B97BCF2266CADF005C393F /* CourseDetailViewController.swift in Sources */,
 				40B97BBD22658EB8005C393F /* AppDelegate.swift in Sources */,
+				40756F8C2274037F00191917 /* MyCoursesTableViewCell.swift in Sources */,
+				4065335B226A8FDF00BF1CDC /* MyCoursesTableViewController.swift in Sources */,
+				40756F862273DBB400191917 /* StudyPartnersViewController.swift in Sources */,
+				4037005522767DFD00174DB8 /* BostonCollegeClass.swift in Sources */,
+				40756F7A22711C3E00191917 /* StudyUsers.swift in Sources */,
+				40756F7C227125B400191917 /* StudyUsersListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +478,7 @@
 		};
 		40B97BCC22658EC1005C393F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C40844FD40BE3C3DD0A50D6A /* Pods-BCstudy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +497,7 @@
 		};
 		40B97BCD22658EC1005C393F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3112328B6B1C0CD79C550D3 /* Pods-BCstudy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
