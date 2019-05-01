@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4037005522767DFD00174DB8 /* BostonCollegeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037005422767DFD00174DB8 /* BostonCollegeClass.swift */; };
 		4037005D2276E69600174DB8 /* StudyPartnerMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037005C2276E69600174DB8 /* StudyPartnerMessageViewController.swift */; };
+		4037005F2279714800174DB8 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037005E2279714800174DB8 /* UserSettingsViewController.swift */; };
+		403700612279779300174DB8 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403700602279779300174DB8 /* PhoneVerificationViewController.swift */; };
 		404638D4226FEB71001D9004 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404638D3226FEB71001D9004 /* GoogleService-Info.plist */; };
 		404638D622702741001D9004 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404638D522702741001D9004 /* Course.swift */; };
 		4065335B226A8FDF00BF1CDC /* MyCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065335A226A8FDF00BF1CDC /* MyCoursesTableViewController.swift */; };
@@ -39,6 +41,8 @@
 		2FEFDFCC199440B34AFB691C /* Pods_BCstudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCstudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4037005422767DFD00174DB8 /* BostonCollegeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BostonCollegeClass.swift; sourceTree = "<group>"; };
 		4037005C2276E69600174DB8 /* StudyPartnerMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPartnerMessageViewController.swift; sourceTree = "<group>"; };
+		4037005E2279714800174DB8 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
+		403700602279779300174DB8 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
 		404638D3226FEB71001D9004 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		404638D522702741001D9004 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		4065335A226A8FDF00BF1CDC /* MyCoursesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesTableViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				40756F932274DD3500191917 /* StudyPartnersTableViewCell.swift */,
 				40756F7B227125B400191917 /* StudyUsersListViewController.swift */,
 				40756F7D22712A6F00191917 /* StudyUsersTableViewCell.swift */,
+				4037005E2279714800174DB8 /* UserSettingsViewController.swift */,
+				403700602279779300174DB8 /* PhoneVerificationViewController.swift */,
 				40B97BC022658EB8005C393F /* Main.storyboard */,
 				40B97BC322658EC1005C393F /* Assets.xcassets */,
 				40B97BC522658EC1005C393F /* LaunchScreen.storyboard */,
@@ -315,11 +321,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				40756F8A2273E9D000191917 /* Exam.swift in Sources */,
+				403700612279779300174DB8 /* PhoneVerificationViewController.swift in Sources */,
 				40756F8422738D5600191917 /* MyCourseTableViewCell.swift in Sources */,
 				40756F882273DC6B00191917 /* AddExamViewController.swift in Sources */,
 				40756F922274CF6100191917 /* Classmates.swift in Sources */,
 				404638D622702741001D9004 /* Course.swift in Sources */,
 				40756F8E2274096700191917 /* Exams.swift in Sources */,
+				4037005F2279714800174DB8 /* UserSettingsViewController.swift in Sources */,
 				40756F902274CF4800191917 /* Classmate.swift in Sources */,
 				40B97BD12266CB1F005C393F /* AddCourseViewController.swift in Sources */,
 				40756F76227119CA00191917 /* StudyUser.swift in Sources */,

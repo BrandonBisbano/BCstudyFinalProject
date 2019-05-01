@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +15,57 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="dwU-y5-zN8">
+                                <rect key="frame" x="97" y="696" width="221" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="RE1-at-t0d">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="cny-2B-SHd"/>
+                                            <constraint firstAttribute="width" constant="90" id="zJa-h5-nfw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="study" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qk3-ff-QW9">
+                                        <rect key="frame" x="91" y="0.0" width="130" height="100"/>
+                                        <color key="backgroundColor" red="0.4738979984055921" green="0.096164559627649623" blue="0.12725967415419584" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="JCp-GD-CX1"/>
+                                            <constraint firstAttribute="height" constant="100" id="RKl-4A-hMC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-BoldItalic" family="Avenir Next Condensed" pointSize="52"/>
+                                        <color key="textColor" red="0.76358245260219282" green="0.71844428424720352" blue="0.481782644548918" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qk3-ff-QW9" secondAttribute="bottom" id="337-qY-t93"/>
+                                    <constraint firstAttribute="trailing" secondItem="qk3-ff-QW9" secondAttribute="trailing" id="4hZ-Dg-zyv"/>
+                                    <constraint firstItem="RE1-at-t0d" firstAttribute="top" secondItem="dwU-y5-zN8" secondAttribute="top" id="52t-fR-u9y"/>
+                                    <constraint firstItem="qk3-ff-QW9" firstAttribute="top" secondItem="dwU-y5-zN8" secondAttribute="top" id="9gX-qs-adY"/>
+                                    <constraint firstItem="qk3-ff-QW9" firstAttribute="leading" secondItem="RE1-at-t0d" secondAttribute="trailing" id="kjs-bo-9Bs"/>
+                                    <constraint firstAttribute="bottom" secondItem="RE1-at-t0d" secondAttribute="bottom" id="oKR-0x-XJr"/>
+                                    <constraint firstItem="RE1-at-t0d" firstAttribute="leading" secondItem="dwU-y5-zN8" secondAttribute="leading" id="plG-Pe-voW"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="kQd-pF-KHJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launchScreen" width="1365" height="1024"/>
+        <image name="launchScreenBackground" width="828" height="1792"/>
+    </resources>
 </document>

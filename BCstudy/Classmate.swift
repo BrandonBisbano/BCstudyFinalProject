@@ -12,33 +12,37 @@ import Firebase
 class Classmate {
     var studentName: String
     var studentEmail: String
+    var studentPhoneNumber: String
     var imageURL: String
     var studentUUID: String
     
     var dictionary: [String: Any] {
-        return ["studentName": studentName, "studentEmail": studentEmail, "imageURL": imageURL, "studentUUID": studentUUID]
+        return ["studentName": studentName, "studentEmail": studentEmail, "studentPhoneNumber": studentPhoneNumber, "imageURL": imageURL, "studentUUID": studentUUID]
     }
     
-    init(studentName: String, studentEmail: String, imageURL: String, studentUUID: String) {
+    init(studentName: String, studentEmail: String, studentPhoneNumber: String, imageURL: String, studentUUID: String) {
         self.studentName = studentName
         self.studentEmail = studentEmail
+        self.studentPhoneNumber = studentPhoneNumber
         self.imageURL = imageURL
         self.studentUUID = studentUUID
     }
  
     convenience init(userID: String) {
-        self.init(studentName: "", studentEmail: "", imageURL: "", studentUUID: userID)
+        self.init(studentName: "", studentEmail: "", studentPhoneNumber: "", imageURL: "", studentUUID: userID)
     }
     
     convenience init(dictionary: [String: Any]) {
         let studentName = dictionary["studentName"] as! String? ?? ""
         let studentEmail = dictionary["studentEmail"] as! String? ?? ""
+        let studentPhoneNumber = dictionary["studentPhoneNumber"] as! String? ?? ""
         let imageURL = dictionary["imageURL"] as! String? ?? ""
-        self.init(studentName: studentName, studentEmail: studentEmail, imageURL: imageURL, studentUUID: "")
+        self.init(studentName: studentName, studentEmail: studentEmail, studentPhoneNumber: studentPhoneNumber, imageURL: imageURL, studentUUID: "")
     }
     
-    func saveStudentInformation(currentDocumentID: String, courseReferenceID: String, classmate: Classmate, completed: @escaping (Bool) -> ()) {
+    func saveStudentInformation(currentDocumentID: String, courseReferenceID: String, classmate: Classmate, studyUser: StudyUser, completed: @escaping (Bool) -> ()) {
         print("Saving classmate in because he/she has a course with the same courseID as the current user!")
+        print("Before saving classmate info, phone number is \(studyUser.phoneNumberString)")
         let db = Firestore.firestore()
         // Grab the user ID
         guard let userUID = (Auth.auth().currentUser?.uid) else { // do you have a current user? if you do, let's get the userID.
@@ -46,6 +50,8 @@ class Classmate {
             return completed(false)
         }
         let dataToSave = self.dictionary
+        self.studentPhoneNumber = studyUser.phoneNumberString
+        print("After saving classmate info, phone number is \(classmate.studentPhoneNumber).")
         
         var ref: DocumentReference?
         db.collection("classes").document(courseReferenceID).collection("classmates").addDocument(data: dataToSave) { (error) in

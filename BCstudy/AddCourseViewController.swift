@@ -19,7 +19,6 @@ class AddCourseViewController: UIViewController, UITextViewDelegate {
     
     var course: Course!
     var studyUser: StudyUser!
-    var currentUser: StudyUser!
     var classmate: Classmate!
     var bostonCollegeClass: BostonCollegeClass!
     
@@ -95,14 +94,18 @@ class AddCourseViewController: UIViewController, UITextViewDelegate {
         }
         bostonCollegeClass.courseID = course.courseID
         classmate = Classmate(userID: currentDocumentID)
-        classmate.studentName = currentUser.displayName
-        classmate.studentEmail = currentUser.email
-        if currentUser.photoURL != nil {
-            classmate.imageURL = currentUser.photoURL
+        classmate.studentName = studyUser.displayName
+        classmate.studentEmail = studyUser.email
+        classmate.studentPhoneNumber = studyUser.phoneNumberString
+        print("PHONE NUMBER: \(studyUser.phoneNumberString)")
+        print("PHONE NUMBER: \(classmate.studentPhoneNumber)")
+        print("Study User phone number:&&&&&&&&& \(studyUser.phoneNumberString)")
+        if studyUser.photoURL != nil {
+            classmate.imageURL = studyUser.photoURL
         } else {
             classmate.imageURL = ""
         }
-        classmate.saveStudentInformation(currentDocumentID: currentDocumentID, courseReferenceID: bostonCollegeClass.courseID, classmate: classmate) { (success) in
+        classmate.saveStudentInformation(currentDocumentID: currentDocumentID, courseReferenceID: bostonCollegeClass.courseID, classmate: classmate, studyUser: studyUser) { (success) in
             if success {
                 print("Successfully saved information of the current user to add to classmates collection!")
             } else {

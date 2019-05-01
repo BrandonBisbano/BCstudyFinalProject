@@ -16,6 +16,7 @@ class MyCoursesTableViewController: UIViewController {
     @IBOutlet weak var myCoursesTableView: UITableView!
     @IBOutlet weak var addCourseButton: UIBarButtonItem!
     @IBOutlet weak var editBarButton: UIBarButtonItem!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     
     var authUI: FUIAuth!
     var studyUser: StudyUser!
@@ -25,6 +26,8 @@ class MyCoursesTableViewController: UIViewController {
     var currentUserDocumentID: String!
     var examDocumentID: String!
     var currentUserEmail: String!
+    var studyUserPhoneNumber: String!
+    var doWeHaveUserPhoneVerification: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +37,14 @@ class MyCoursesTableViewController: UIViewController {
 
         myCoursesTableView.delegate = self
         myCoursesTableView.dataSource = self
+        myCoursesTableView.isEditing = false
         myCoursesTableView.isHidden = true
         
+        self.settingsButton.title = NSString(string: "\u{2699}\u{0000FE0E}") as String
+        if let font = UIFont(name: "Helvetica", size: 32.0) {
+            self.settingsButton.setTitleTextAttributes([NSAttributedString.Key.font: font], for: UIControl.State.normal)
+        }
+ 
         courses = Courses()
         studyUsers = StudyUsers()
         exams = Exams()
@@ -56,6 +65,9 @@ class MyCoursesTableViewController: UIViewController {
                 if success {
                     self.myCoursesTableView.reloadData()
                     self.myCoursesTableView.isHidden = false
+                    if self.courses.courseArray.count == 0 {
+                        self.editBarButton.isEnabled = false
+                    }
                 } else {
                     print("Couldn't load courses data in view will appear on main page.")
                 }
@@ -63,6 +75,9 @@ class MyCoursesTableViewController: UIViewController {
             studyUsers.loadData { success in
                 if success {
                     print("Loaded studyUsers data in view will appear on main page!")
+                    if self.studyUser.phoneNumberString == "" {
+                        self.signIn()
+                    }
                 } else {
                     print("Couldn't load studyUsers data in view will appear on main page :(")
                 }
@@ -80,7 +95,7 @@ class MyCoursesTableViewController: UIViewController {
                 if success {
                     print("Data successfully loaded off of firebase.")
                     print("Data reloaded in the table view.")
-                    print("Phone number for this study user is \(self.studyUser.phoneNumber).")
+                    print("Phone number for this study user is \(self.studyUser.phoneNumberString).")
                     self.myCoursesTableView.reloadData()
                 } else {
                     print("Couldn't load data off firebase in main view controller.")
@@ -97,7 +112,7 @@ class MyCoursesTableViewController: UIViewController {
             currentUserDocumentID = studyUser.documentID
             let currentDocumentID = currentUserDocumentID
             destination.currentDocumentID = currentDocumentID
-            destination.currentUser = studyUser
+            destination.studyUser = studyUser
             print("Prepared for segue AddCourse")
         } else if segue.identifier == "ShowCourseDetail" {
             let destination = segue.destination.children[0] as! CourseDetailViewController
@@ -108,6 +123,9 @@ class MyCoursesTableViewController: UIViewController {
             let currentUser = authUI.auth?.currentUser
             destination.currentUserEmail = currentUser!.email!
             print("Prepared for segue ShowCourseDetail")
+        } else if segue.identifier == "SegueToPhoneVerification" {
+            let destination = segue.destination.children[0] as! PhoneVerificationViewController
+            destination.studyUser = studyUser
         }
     }
     
@@ -119,23 +137,39 @@ class MyCoursesTableViewController: UIViewController {
         let currentUser = authUI.auth?.currentUser
         if authUI.auth?.currentUser == nil {
             self.authUI?.providers = providers
+            print("This isn't a new study user!")
             print("Going to present authViewController()")
             present(authUI.authViewController(), animated: true, completion: nil)
             print("authViewController() presented...")
         } else {
-            studyUser = StudyUser(user: currentUser!)
-            
-            studyUser.saveIfNewUser()
-            currentUserDocumentID = studyUser.documentID
-            print("Phone number for this study user is \(self.studyUser.phoneNumber).")
-            print("currentUserDocumentID = \(currentUserDocumentID)")
-            print("SignIn() function executed on main view controller, and the currentUserDocumentID has been updated.")
-            myCoursesTableView.isHidden = false
+            if doWeHaveUserPhoneVerification == true {
+                self.studyUser.saveIfNewUser()
+                self.currentUserDocumentID = self.studyUser.documentID
+                print("Phone number for this study user is \(self.studyUser.phoneNumberString).")
+                print("currentUserDocumentID = \(self.currentUserDocumentID)")
+                print("SignIn() function executed on main view controller, and the currentUserDocumentID has been updated.")
+                self.myCoursesTableView.isHidden = false
+            } else {
+                studyUser = StudyUser(user: currentUser!)
+                studyUser.checkIfNewUser(documentID: studyUser.documentID) { (new) in
+                    if new {
+                        print("This is a new study user!")
+                        self.performSegue(withIdentifier: "SegueToPhoneVerification", sender: nil)
+                    } else {
+                        self.studyUser.saveIfNewUser()
+                        self.currentUserDocumentID = self.studyUser.documentID
+                        print("Phone number for this study user is \(self.studyUser.phoneNumberString).")
+                        print("SignIn() function executed on main view controller, and the currentUserDocumentID has been updated.")
+                        self.myCoursesTableView.isHidden = false
+                    }
+                }
+            }
         }
     }
     
     @IBAction func signOutPressed(_ sender: UIBarButtonItem) {
         do {
+            doWeHaveUserPhoneVerification = false
             try authUI!.signOut()
             print("^^^ Successfully signed out!")
             myCoursesTableView.isHidden = true
@@ -156,6 +190,9 @@ class MyCoursesTableViewController: UIViewController {
             editBarButton.title = "Done"
             addCourseButton.isEnabled = false
         }
+    }
+    
+    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
     }
 }
 
@@ -211,6 +248,10 @@ extension MyCoursesTableViewController: UITableViewDelegate, UITableViewDataSour
                                 self.courses.loadData(currentDocumentID: self.currentUserDocumentID) { (success) in
                                     if success {
                                         self.myCoursesTableView.reloadData()
+                                        if self.courses.courseArray.count == 0 {
+                                            self.editBarButton.isEnabled = false
+                                            self.addCourseButton.isEnabled = true
+                                        }
                                         print("Successfully loaded new course data!")
                                     } else {
                                         print("ERROR LOADING TABLE VIEW AFTER DELETING DATA.")
@@ -244,8 +285,6 @@ extension MyCoursesTableViewController: FUIAuthDelegate {
             // Assumes data will be isplayed in a tableView that was hidden until login was verified so unauthorized users can't see data.
             print("^^^ We signed in with the user \(user.email ?? "unknown e-mail") and his/her currentDocumentID is \(user.uid)")
             let currentUser = authUI.auth?.currentUser
-            print("PHONE NUMBER: \(user.phoneNumber)")
-            print("Phone number for user \(currentUser?.displayName) is \(currentUser?.phoneNumber).")
             courses.loadData(currentDocumentID: (currentUser?.uid)!) { (success) in
                 if success {
                     print("Data successfully loaded off of firebase in the extension.")

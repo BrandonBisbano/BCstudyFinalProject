@@ -34,7 +34,12 @@ class StudyUsersListViewController: UIViewController {
     }
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "LeaveShowUser", sender: nil)
+        let isPresentingInAddMode = presentingViewController is UINavigationController
+        if isPresentingInAddMode {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 
