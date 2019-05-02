@@ -23,13 +23,19 @@ class PhoneVerificationViewController: UIViewController, UITextViewDelegate {
 
         phoneNumberTextField.isEnabled = true
         savePhoneNumberButton.isEnabled = true
-        // Do any additional setup after loading the view.
+        
+        phoneNumberTextField.delegate = self
+        phoneNumberTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
+        
+        addBordersToButtons()
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
-        
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        showAlert(title: "This App Requires Your Phone Number", message: "To use messaging services within the app, please input your phone number.")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,6 +51,10 @@ class PhoneVerificationViewController: UIViewController, UITextViewDelegate {
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+    
+    func addBordersToButtons() {
+        savePhoneNumberButton.addBorder(width: 1.0, radius: 5.0, color: .black)
     }
     
     func showAlert(title: String, message: String) {
@@ -64,7 +74,7 @@ class PhoneVerificationViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func savePhoneNumberButtonPressed(_ sender: UIButton) {
-        if phoneNumberTextField.text!.count == 11 {
+        if phoneNumberTextField.text!.count == 17 {
             studyUser.phoneNumberString = phoneNumberTextField.text!
             doWeHaveUserPhoneVerification = true
             studyUser.saveIfNewUser()
@@ -77,28 +87,37 @@ class PhoneVerificationViewController: UIViewController, UITextViewDelegate {
             self.showAlert(title: "Please Enter Valid Number", message: "Your phone number should include an area code.")
         }
     }
+    
+    @IBAction func phoneNumberTextFieldEditingChanged(_ sender: UITextField) {
+        if phoneNumberTextField.text! != "" {
+            let currentText = phoneNumberTextField.text!
+            phoneNumberTextField.text = currentText.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacmentCharacter: "#")
+        }
+    }
 }
 
 extension PhoneVerificationViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-    }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-    }
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        return true
-    }
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return true
+        guard let textFieldText = textField.text,
+            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                return false
+        }
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+        return count <= 17
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder();
-        return true
+}
+
+extension String {
+    func applyPatternOnNumbers(pattern: String, replacmentCharacter: Character) -> String {
+        var pureNumber = self.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
+        for index in 0 ..< pattern.count {
+            guard index < pureNumber.count else { return pureNumber }
+            let stringIndex = String.Index(encodedOffset: index)
+            let patternCharacter = pattern[stringIndex]
+            guard patternCharacter != replacmentCharacter else { continue }
+            pureNumber.insert(patternCharacter, at: stringIndex)
+        }
+        return pureNumber
     }
 }

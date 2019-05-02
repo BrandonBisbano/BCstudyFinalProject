@@ -556,6 +556,7 @@
                         <outlet property="addExamDatePicker" destination="Qed-Ca-ElF" id="kfn-mh-FUn"/>
                         <outlet property="examDescriptionTextField" destination="EAJ-GN-om2" id="ACk-FN-nEx"/>
                         <outlet property="examLocationTextField" destination="vRV-a3-OD6" id="4T9-C5-P1t"/>
+                        <outlet property="saveNewExamButton" destination="ciP-3I-clW" id="mZb-ih-k1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFJ-F0-c5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1034,6 +1035,44 @@
                     <view key="view" contentMode="scaleToFill" id="jpB-dW-AyN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Yc-zH-jMB">
+                                <rect key="frame" x="20" y="53" width="374" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="31"/>
+                                <state key="normal" title="Change Phone Number"/>
+                                <connections>
+                                    <action selector="findAStudyPartnerButtonPressed:" destination="mqa-lp-RQc" eventType="touchUpInside" id="4ci-Wv-qMr"/>
+                                    <action selector="saveButtonPressed:" destination="ecE-iz-KHn" eventType="touchUpInside" id="sHa-Xe-INt"/>
+                                    <action selector="savePhoneNumberButtonPressed:" destination="Maa-V3-oBe" eventType="touchUpInside" id="riw-yq-TT5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRH-oU-NUq">
+                                <rect key="frame" x="20" y="235" width="374" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="31"/>
+                                <state key="normal" title="Delete Account"/>
+                                <connections>
+                                    <action selector="findAStudyPartnerButtonPressed:" destination="mqa-lp-RQc" eventType="touchUpInside" id="yGL-05-jow"/>
+                                    <action selector="saveButtonPressed:" destination="ecE-iz-KHn" eventType="touchUpInside" id="Z93-gO-l8L"/>
+                                    <action selector="savePhoneNumberButtonPressed:" destination="Maa-V3-oBe" eventType="touchUpInside" id="8CU-2A-osN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7t7-mQ-rX4">
+                                <rect key="frame" x="20" y="144" width="374" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="31"/>
+                                <state key="normal" title="Change Email Address"/>
+                                <connections>
+                                    <action selector="findAStudyPartnerButtonPressed:" destination="mqa-lp-RQc" eventType="touchUpInside" id="uG7-HG-KcX"/>
+                                    <action selector="saveButtonPressed:" destination="ecE-iz-KHn" eventType="touchUpInside" id="Jze-gK-fXd"/>
+                                    <action selector="savePhoneNumberButtonPressed:" destination="Maa-V3-oBe" eventType="touchUpInside" id="npg-CF-zvt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.80000000000000004" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ts7-JU-wUJ"/>
                     </view>
@@ -1049,6 +1088,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="changeEmailAddressButton" destination="7t7-mQ-rX4" id="jUm-ep-tWQ"/>
+                        <outlet property="changePhoneNumberButton" destination="8Yc-zH-jMB" id="4TY-hg-4TD"/>
+                        <outlet property="deleteAccountButton" destination="FRH-oU-NUq" id="jTa-fq-Kq3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="324-6t-EID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1062,24 +1106,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyD-7m-pCg">
-                                <rect key="frame" x="20" y="100" width="374" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Input Phone Number:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyD-7m-pCg">
+                                <rect key="frame" x="20" y="360" width="374" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.85098039219999999" green="0.80000000000000004" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3W-sE-rML">
-                                <rect key="frame" x="20" y="138" width="374" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3W-sE-rML">
+                                <rect key="frame" x="20" y="398" width="374" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done" smartDashesType="no" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="phoneNumberTextFieldEditingChanged:" destination="Maa-V3-oBe" eventType="editingChanged" id="gtu-DP-vzj"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pb-Gc-eZk">
-                                <rect key="frame" x="65" y="214" width="285" height="55"/>
+                                <rect key="frame" x="65" y="474" width="285" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="31"/>
@@ -1210,7 +1257,6 @@
         <!--Navigation Controller-->
         <scene sceneID="AFd-ep-CQE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qtd-gX-YjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="xPf-3a-DA1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="eU7-h0-UfL">
@@ -1228,6 +1274,7 @@
                         <segue destination="Maa-V3-oBe" kind="relationship" relationship="rootViewController" id="R2A-ZW-3uU"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qtd-gX-YjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5134.7826086956529" y="-2365.1785714285711"/>
         </scene>

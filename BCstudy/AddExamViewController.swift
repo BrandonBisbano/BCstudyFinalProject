@@ -13,6 +13,7 @@ class AddExamViewController: UIViewController {
     @IBOutlet weak var addExamDatePicker: UIDatePicker!
     @IBOutlet weak var examDescriptionTextField: UITextField!
     @IBOutlet weak var examLocationTextField: UITextField!
+    @IBOutlet weak var saveNewExamButton: UIButton!
     
     var course: Course!
     var exam: Exam!
@@ -24,6 +25,7 @@ class AddExamViewController: UIViewController {
         super.viewDidLoad()
         
         exam = Exam()
+        addBordersToButtons()
         // Do any additional setup after loading the view.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         
@@ -37,6 +39,10 @@ class AddExamViewController: UIViewController {
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+    
+    func addBordersToButtons() {
+        saveNewExamButton.addBorder(width: 1.0, radius: 5.0, color: .black)
     }
     
     func leaveViewController() {

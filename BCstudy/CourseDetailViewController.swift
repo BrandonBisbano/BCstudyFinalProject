@@ -40,6 +40,8 @@ class CourseDetailViewController: UIViewController {
         myExamsTableView.dataSource = self
         myExamsTableView.isHidden = true
         
+        addBordersToButtons()
+        
         exams = Exams()
         classmates = Classmates()
         
@@ -105,6 +107,10 @@ class CourseDetailViewController: UIViewController {
             print("Prepared for segue ShowCourseStudents")
 
         }
+    }
+    
+    func addBordersToButtons() {
+        findAStudyPartnerButton.addBorder(width: 1.0, radius: 5.0, color: .black)
     }
     
     func configureData() {

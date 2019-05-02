@@ -79,7 +79,7 @@ class MyCoursesTableViewController: UIViewController {
                         self.signIn()
                     }
                 } else {
-                    print("Couldn't load studyUsers data in view will appear on main page :(")
+                    print("Couldn't load studyUsers data in view will appear on main page")
                 }
             }
         }
@@ -97,6 +97,11 @@ class MyCoursesTableViewController: UIViewController {
                     print("Data reloaded in the table view.")
                     print("Phone number for this study user is \(self.studyUser.phoneNumberString).")
                     self.myCoursesTableView.reloadData()
+                    if self.courses.courseArray.count == 0 {
+                        self.editBarButton.isEnabled = false
+                    } else {
+                        self.editBarButton.isEnabled = true
+                    }
                 } else {
                     print("Couldn't load data off firebase in main view controller.")
                 }

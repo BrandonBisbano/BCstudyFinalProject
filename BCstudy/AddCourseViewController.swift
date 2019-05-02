@@ -34,6 +34,8 @@ class AddCourseViewController: UIViewController, UITextViewDelegate {
         professorNameInputLabel.delegate = self
         sectionIDInputLabel.delegate = self
         
+        addBordersToButtons()
+        
         saveNewCourseButton.isEnabled = false
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -48,6 +50,10 @@ class AddCourseViewController: UIViewController, UITextViewDelegate {
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+    
+    func addBordersToButtons() {
+        saveNewCourseButton.addBorder(width: 1.0, radius: 5.0, color: .black)
     }
     
     func checkField(sender: AnyObject) {
