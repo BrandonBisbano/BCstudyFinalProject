@@ -49,7 +49,6 @@ class CourseDetailViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-                
         courseReferenceID = course.courseID
         print("currentDocumentID: \(userDocumentID), currentCourseID: \(courseReferenceID)")
         classmates.loadClassmatesData(currentDocumentID: userDocumentID, courseReferenceID: courseReferenceID) { (success) in
@@ -65,24 +64,21 @@ class CourseDetailViewController: UIViewController {
                 print("Failed to load classmates data in CourseDetailViewController!.")
             }
         }
-
         exams.loadData(currentDocumentID: userDocumentID, currentCourseID: courseReferenceID) { (success) in
             if success {
-                if self.exams.examArray.count == 0 {
-                    self.myExamsTableView.isHidden = true
-                    self.editBarButton.isEnabled = false
-                } else {
-                    print("Data successfully loaded in!!!!")
+                print("This user has inputted \(self.exams.examArray.count) exams.")
+                if self.exams.examArray.count != 0 {
                     self.editBarButton.isEnabled = true
-                    self.myExamsTableView.isHidden = false
                     self.myExamsTableView.reloadData()
+                    self.myExamsTableView.isHidden = false
+                } else {
+                    self.editBarButton.isEnabled = false
                 }
             } else {
                 print("Failed to load exams data.")
                 self.editBarButton.isEnabled = false
             }
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

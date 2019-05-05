@@ -23,7 +23,7 @@ class StudyPartnerMessageViewController: UIViewController, MFMessageComposeViewC
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
             controller.body = "Hey \(classmate.studentName),"
-            controller.recipients = [classmate.studentPhoneNumber] // classmate.phoneNumber should import the phone number for this classmate too but can't get that value through google sign in.
+            controller.recipients = [classmate.studentPhoneNumber] 
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
         }

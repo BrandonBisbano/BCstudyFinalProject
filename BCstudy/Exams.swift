@@ -21,7 +21,7 @@ class Exams {
         guard currentDocumentID != "" else {
             return
         }
-    db.collection("users").document(currentDocumentID).collection("courses").document(currentCourseID).collection("exams").addSnapshotListener { (querySnapshot, error) in
+        db.collection("users").document(currentDocumentID).collection("courses").document(currentCourseID).collection("exams").addSnapshotListener { (querySnapshot, error) in
             guard error == nil else {
                 print("*** ERROR: Adding the snapshot listener!!!!.")
                 return completed(true)
@@ -54,6 +54,5 @@ class Exams {
                 completed(true)
             }
         }
-        // didn't set this up yet but it's coming soon
     }
 }
