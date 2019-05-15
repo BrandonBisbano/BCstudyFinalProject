@@ -23,7 +23,7 @@ class MyCoursesTableViewController: UIViewController {
     var studyUsers: StudyUsers!
     var exams: Exams!
     var courses: Courses!
-    var currentUserDocumentID: String!
+    var currentUserDocumentID: String = ""
     var examDocumentID: String!
     var currentUserEmail: String!
     var studyUserPhoneNumber: String!
@@ -56,7 +56,7 @@ class MyCoursesTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("ViewWillAppear on main view controller!")
-        if currentUserDocumentID == nil {
+        if currentUserDocumentID == "" {
             print("currentUserDocumentID was equal to nil :( Trying to sign in.")
             self.myCoursesTableView.isHidden = true
             signIn()
@@ -90,21 +90,25 @@ class MyCoursesTableViewController: UIViewController {
         print("currentUserDocumentID: \(currentUserDocumentID)")
         let currentUser = authUI.auth?.currentUser
         if currentUserDocumentID != currentUser?.uid {
-            studyUser = StudyUser(user: currentUser!)
-            courses.loadData(currentDocumentID: studyUser.documentID) { (success) in
-                if success {
-                    print("Data successfully loaded off of firebase.")
-                    print("Data reloaded in the table view.")
-                    print("Phone number for this study user is \(self.studyUser.phoneNumberString).")
-                    self.myCoursesTableView.reloadData()
-                    if self.courses.courseArray.count == 0 {
-                        self.editBarButton.isEnabled = false
+            if currentUser?.uid != nil {
+                studyUser = StudyUser(user: currentUser!)
+                courses.loadData(currentDocumentID: studyUser.documentID) { (success) in
+                    if success {
+                        print("Data successfully loaded off of firebase.")
+                        print("Data reloaded in the table view.")
+                        print("Phone number for this study user is \(self.studyUser.phoneNumberString).")
+                        self.myCoursesTableView.reloadData()
+                        if self.courses.courseArray.count == 0 {
+                            self.editBarButton.isEnabled = false
+                        } else {
+                            self.editBarButton.isEnabled = true
+                        }
                     } else {
-                        self.editBarButton.isEnabled = true
+                        print("Couldn't load data off firebase in main view controller.")
                     }
-                } else {
-                    print("Couldn't load data off firebase in main view controller.")
                 }
+            } else {
+                print("currentUser?.uid == nil in MyCoursesTableViewController")
             }
         } else {
             print("ViewDidAppearFinished")
@@ -131,6 +135,9 @@ class MyCoursesTableViewController: UIViewController {
         } else if segue.identifier == "SegueToPhoneVerification" {
             let destination = segue.destination.children[0] as! PhoneVerificationViewController
             destination.studyUser = studyUser
+        } else if segue.identifier == "SegueToSettings" {
+            let destination = segue.destination.children[0] as! UserSettingsViewController
+            destination.studyUser = studyUser
         }
     }
     
@@ -156,7 +163,7 @@ class MyCoursesTableViewController: UIViewController {
                 self.myCoursesTableView.isHidden = false
             } else {
                 studyUser = StudyUser(user: currentUser!)
-                studyUser.checkIfNewUser(documentID: studyUser.documentID) { (new) in
+                studyUser.checkIfNewUser(documentID: studyUser.documentID) { new in
                     if new {
                         print("This is a new study user!")
                         self.performSegue(withIdentifier: "SegueToPhoneVerification", sender: nil)

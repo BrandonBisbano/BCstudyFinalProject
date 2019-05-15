@@ -35,25 +35,26 @@ class AddCourseViewController: UIViewController, UITextViewDelegate {
         sectionIDInputLabel.delegate = self
         
         addBordersToButtons()
+        addBordersToLabelsAndTextFields()
         
         saveNewCourseButton.isEnabled = false
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
-        
         view.addGestureRecognizer(tap)
     }
     
-    //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
     func addBordersToButtons() {
         saveNewCourseButton.addBorder(width: 1.0, radius: 5.0, color: .black)
+    }
+    
+    func addBordersToLabelsAndTextFields() {
+        courseNameInputLabel.addBorder(width: 1.0, radius: 5.0, color: .gray)
+        professorNameInputLabel.addBorder(width: 1.0, radius: 5.0, color: .gray)
+        sectionIDInputLabel.addBorder(width: 1.0, radius: 5.0, color: .gray)
     }
     
     func checkField(sender: AnyObject) {
@@ -106,7 +107,7 @@ class AddCourseViewController: UIViewController, UITextViewDelegate {
         print("PHONE NUMBER: \(studyUser.phoneNumberString)")
         print("PHONE NUMBER: \(classmate.studentPhoneNumber)")
         print("Study User phone number:&&&&&&&&& \(studyUser.phoneNumberString)")
-        if studyUser.photoURL != nil {
+        if studyUser.photoURL != "" {
             classmate.imageURL = studyUser.photoURL
         } else {
             classmate.imageURL = ""

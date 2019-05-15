@@ -51,4 +51,21 @@ class StudyUsers {
             completed()
         }
     }
+    
+    func deleteStudyUser(userID: String, completed: @escaping (Bool) -> ()) {
+        guard let userUID = (Auth.auth().currentUser?.uid) else { // do you have a current user? if you do, let's get the userID.
+            print("*** ERROR: Could not delete data because we don't have a valid userUID.")
+            return completed(false)
+        }
+        let db = Firestore.firestore()
+        db.collection("users").document(userID).delete { error in
+            if let error = error {
+                print("*** ERROR: Could not delete a document with documentID \(userID) in \(error.localizedDescription).")
+                completed(false)
+            } else {
+                print("Just deleted the user's course document.")
+                completed(true)
+            }
+        }
+    }
 }

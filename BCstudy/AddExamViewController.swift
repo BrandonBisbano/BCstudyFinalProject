@@ -25,24 +25,25 @@ class AddExamViewController: UIViewController {
         super.viewDidLoad()
         
         exam = Exam()
+        
         addBordersToButtons()
-        // Do any additional setup after loading the view.
+        addBordersToLabelsAndTextFields()
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
-        
         view.addGestureRecognizer(tap)
     }
     
-    //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
     func addBordersToButtons() {
         saveNewExamButton.addBorder(width: 1.0, radius: 5.0, color: .black)
+    }
+    
+    func addBordersToLabelsAndTextFields() {
+        examDescriptionTextField.addBorder(width: 1.0, radius: 5.0, color: .gray)
+        examLocationTextField.addBorder(width: 1.0, radius: 5.0, color: .gray)
     }
     
     func leaveViewController() {

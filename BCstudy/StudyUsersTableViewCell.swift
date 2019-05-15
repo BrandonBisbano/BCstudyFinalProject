@@ -17,8 +17,8 @@ private let dateFormatter: DateFormatter = {
 
 class StudyUsersTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
+    @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     
     var studyUser: StudyUser! {

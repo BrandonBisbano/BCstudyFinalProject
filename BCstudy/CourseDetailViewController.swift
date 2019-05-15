@@ -12,9 +12,9 @@ import Firebase
 class CourseDetailViewController: UIViewController {
 
     @IBOutlet weak var myExamsTableView: UITableView!
-    @IBOutlet weak var courseNameLabel: UILabel!
-    @IBOutlet weak var professorNameLabel: UILabel!
-    @IBOutlet weak var sectionLabel: UILabel!
+    @IBOutlet weak var courseNameLabel: UITextField!
+    @IBOutlet weak var professorNameLabel: UITextField!
+    @IBOutlet weak var sectionLabel: UITextField!
     @IBOutlet weak var findAStudyPartnerButton: UIButton!
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     @IBOutlet weak var addExamButton: UIBarButtonItem!
@@ -41,6 +41,7 @@ class CourseDetailViewController: UIViewController {
         myExamsTableView.isHidden = true
         
         addBordersToButtons()
+        addBordersToLabelsAndTextFields()
         
         exams = Exams()
         classmates = Classmates()
@@ -107,6 +108,12 @@ class CourseDetailViewController: UIViewController {
     
     func addBordersToButtons() {
         findAStudyPartnerButton.addBorder(width: 1.0, radius: 5.0, color: .black)
+    }
+    
+    func addBordersToLabelsAndTextFields() {
+        courseNameLabel.addBorder(width: 1.0, radius: 5.0, color: .gray)
+        professorNameLabel.addBorder(width: 1.0, radius: 5.0, color: .gray)
+        sectionLabel.addBorder(width: 1.0, radius: 5.0, color: .gray)
     }
     
     func configureData() {

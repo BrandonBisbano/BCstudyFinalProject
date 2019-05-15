@@ -22,7 +22,7 @@ class StudyPartnerMessageViewController: UIViewController, MFMessageComposeViewC
     override func viewDidAppear(_ animated: Bool) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.body = "Hey \(classmate.studentName),"
+            controller.body = "Hey \(classmate.studentName), "
             controller.recipients = [classmate.studentPhoneNumber] 
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)

@@ -10,10 +10,11 @@ import UIKit
 
 class MyCoursesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var examTimeLabel: UILabel!
-    @IBOutlet weak var examDescriptionLabel: UILabel!
-    @IBOutlet weak var examLocationLabel: UILabel!
     
+    @IBOutlet weak var examTimeLabel: UILabel!
+    @IBOutlet weak var examLocationLabel: UILabel!
+    @IBOutlet weak var examDescriptionLabel: UILabel!
+
     var exam: Exam!
     
     func configureExamCell(exam: Exam) {
@@ -25,9 +26,9 @@ class MyCoursesTableViewCell: UITableViewCell {
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy h:mm a"
         let formattedDate = dateFormatter.string(from: dateNSDate as Date)
-        examTimeLabel.text = "\(formattedDate)"
-        print("Exam Location: \(exam.examLocation)")
-        examLocationLabel.text = exam.examLocation
-        examDescriptionLabel.text = exam.examDescription
+        
+        examTimeLabel.text = " \(formattedDate)"
+        examLocationLabel.text = " \(exam.examLocation)"
+        examDescriptionLabel.text = " \(exam.examDescription)"
     }
 }

@@ -28,6 +28,7 @@ class PhoneVerificationViewController: UIViewController, UITextViewDelegate {
         phoneNumberTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
         
         addBordersToButtons()
+        addBordersToLabelsAndTextFields()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         
@@ -55,6 +56,10 @@ class PhoneVerificationViewController: UIViewController, UITextViewDelegate {
     
     func addBordersToButtons() {
         savePhoneNumberButton.addBorder(width: 1.0, radius: 5.0, color: .black)
+    }
+    
+    func addBordersToLabelsAndTextFields() {
+        phoneNumberTextField.addBorder(width: 1.0, radius: 5.0, color: .gray)
     }
     
     func showAlert(title: String, message: String) {

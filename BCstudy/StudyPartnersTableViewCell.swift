@@ -10,6 +10,7 @@ import UIKit
 
 class StudyPartnersTableViewCell: UITableViewCell {
 
+    
     @IBOutlet weak var classmateName: UILabel!
     @IBOutlet weak var classmateEmailLabel: UILabel!
     @IBOutlet weak var classmateImage: UIImageView!
@@ -19,6 +20,7 @@ class StudyPartnersTableViewCell: UITableViewCell {
     func configureClassmateCell(classmate: Classmate) {
         classmateName.text = " \(classmate.studentName)"
         classmateEmailLabel.text = " \(classmate.studentEmail)"
+        
         if classmate.imageURL != "" {
             let url = URL(string: classmate.imageURL)
             let imageUrl = NSData(contentsOf: url!)
